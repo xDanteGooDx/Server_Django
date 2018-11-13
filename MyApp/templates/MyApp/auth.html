@@ -1,0 +1,20 @@
+{% extends "MyApp/template.html" %}
+{% block login %}
+<div class="text-center">
+    <form class="form-signin" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+      <h1 class="h3 mb-3 font-weight-normal">Введите логин и пароль</h1>
+        {% if login_error %}
+            <label class="error-message">{{ login_error }}</label>
+        {% endif %}
+      <label class="sr-only" for="inputEmail">login</label>
+      <input class="form-control" id="username" autofocus="" required="" placeholder="Email address" name="username">
+      <label class="sr-only" for="inputPassword">Password</label>
+      <input class="form-control" id="password" required="" name="password" type="password" placeholder="Password">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+        <a href="{% url "registration" %}" class="">Регистрация
+
+        </a>
+    </form>
+</div>
+{% endblock %}

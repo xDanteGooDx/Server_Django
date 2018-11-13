@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link href="{% static "/MyApp/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "MyApp/css/custom-style.css" %}" rel="stylesheet" type="text/css">
+    {% block header %}
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body class="bg-light">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <a href="{% url "index" %}" class="my-0 mr-md-auto ">
+        <button class="btn-outline-info">
+            <h5 class="font-weight-normal">Портал IT-литературы</h5>
+        </button>
+    </a>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">Книги</a>
+        <a class="p-2 text-dark" href="#">Помощь</a>
+        <a class="p-2 text-dark" href="#">О проекте</a>
+    </nav>
+    {% if username %}
+        <a class="btn btn-outline-primary" href="{% url 'logout' %}">Выйти ({{ username }})</a>
+    {% else %}
+        <a class="btn btn-outline-primary" href="{% url 'login' %}">Войти</a>
+    {% endif %}
+</div>
+{% block login %}
+{% endblock %}
+{% block content %}
+
+{% endblock %}
+<script src="{% static "MyApp/js/bootstrap.min.js" %}"></script>
+</body>
+</html>

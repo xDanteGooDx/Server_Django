@@ -1,0 +1,26 @@
+{% extends "MyApp/template.html" %}
+
+{% block content %}
+    <h1 class="text-center"> Регистрация</h1>
+    <div class="text-center my-5">
+        <h3 class="mb-3"> Студент/Преподователь?</h3>
+        <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+                <input name="role" class="custom-control-input" value="student" id="student_reg" required="" type="radio"
+                       unchecked="" checked>
+                <label class="custom-control-label" for="student_reg">Студент</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input name="role" class="custom-control-input" id="educator_reg" required="" type="radio"
+                       unchecked="" value="educator">
+                <label class="custom-control-label" for="educator_reg">Преподаватель</label>
+            </div>
+        </div>
+{% comment %}
+    Здесь выбор студента или препода
+    о студенте - имя, фамилию, отчество, группа?
+    о преподавателе - фио,
+{% endcomment %}
+    </div>
+
+{% endblock %}
